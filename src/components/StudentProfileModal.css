@@ -1,0 +1,287 @@
+/* StudentProfileModal.css */
+.sprofile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(10px);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  animation: overlayIn 0.2s ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.sprofile-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+}
+
+.sprofile-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  z-index: 10;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.sprofile-close:hover { background: var(--peach-dim); color: var(--peach); }
+
+/* HEADER */
+.sprofile-header {
+  position: relative;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--scolor, #C4B5FD) 10%, var(--bg-panel)),
+    var(--bg-panel));
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.sprofile-header__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, var(--scolor, #C4B5FD), transparent 55%);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.sprofile-header__content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  position: relative;
+}
+
+.sprofile-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--bg-elevated);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.sprofile-name {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.sprofile-college {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.sprofile-year {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.sprofile-open-to {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sprofile-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* BODY */
+.sprofile-body {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 0;
+}
+
+@media (max-width: 680px) {
+  .sprofile-body { grid-template-columns: 1fr; }
+  .sprofile-cta { border-left: none; border-top: 1px solid var(--border-subtle); }
+}
+
+.sprofile-left {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Stats */
+.sprofile-stats {
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.sprofile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  text-align: center;
+}
+
+.sprofile-stat__icon { font-size: 1rem; }
+.sprofile-stat__value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.sprofile-stat__label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sprofile-section { display: flex; flex-direction: column; gap: 10px; }
+.sprofile-section-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sprofile-bio {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.sprofile-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sprofile-skill-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.sprofile-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sprofile-activity-item {
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  align-items: center;
+}
+
+/* CTA panel */
+.sprofile-cta {
+  padding: var(--space-xl) var(--space-lg);
+  border-left: 1px solid var(--border-subtle);
+  background: var(--bg-panel);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border-radius: 0 0 var(--radius-xl) 0;
+}
+
+.sprofile-cta__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sprofile-cta__title {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.sprofile-cta__sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: -8px;
+}
+
+.sprofile-cta__btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.sprofile-cta__btn--done {
+  background: var(--mint-dim) !important;
+  color: var(--mint) !important;
+  border: 1.5px solid var(--mint) !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+
+.sprofile-cta__divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: var(--space-xs) 0;
+}
+
+.sprofile-cta__details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sprofile-cta__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.sprofile-cta__label { color: var(--text-muted); }
+.sprofile-cta__value { color: var(--text-primary); font-weight: 600; }
+
+.sprofile-cta__login-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: auto;
+}
+
+.sprofile-cta__login-note span { font-size: 1rem; flex-shrink: 0; }
+.sprofile-cta__login-note p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }

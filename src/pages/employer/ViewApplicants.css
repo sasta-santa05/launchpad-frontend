@@ -1,0 +1,202 @@
+/* ViewApplicants.css */
+.vapp { padding: var(--space-xl); max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-xl); }
+
+.vapp__header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-xl); flex-wrap: wrap; }
+.vapp__title  { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--text-primary); margin-top: 4px; }
+.vapp__role-filter { display: flex; align-items: center; gap: var(--space-md); }
+.vapp__select { width: auto; min-width: 260px; }
+
+/* Stats strip */
+.vapp__strip {
+  display: flex; gap: var(--space-lg);
+  background: var(--bg-card); border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl); padding: var(--space-lg) var(--space-xl);
+  flex-wrap: wrap;
+}
+.vapp__strip-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 16px; border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card); flex: 1;
+}
+.vapp__strip-icon  { font-size: 1.2rem; }
+.vapp__strip-count { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-primary); }
+.vapp__strip-label { font-size: 0.75rem; color: var(--text-muted); }
+.vapp__strip-item--lavender { background: var(--lavender-dim); border-color: var(--lavender-glow); }
+.vapp__strip-item--amber    { background: var(--amber-dim);    border-color: rgba(252,211,77,0.2); }
+.vapp__strip-item--cyan     { background: var(--cyan-dim);     border-color: rgba(103,232,249,0.2); }
+.vapp__strip-item--mint     { background: var(--mint-dim);     border-color: rgba(134,239,172,0.2); }
+.vapp__strip-item--peach    { background: var(--peach-dim);    border-color: rgba(252,165,165,0.2); }
+
+/* Kanban board */
+.vapp__board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+  overflow-x: auto;
+  padding-bottom: var(--space-md);
+}
+
+/* Column */
+.vapp__column {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-width: 220px;
+}
+.vapp__column-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.vapp__column-icon  { font-size: 1rem; }
+.vapp__column-label { font-family: var(--font-display); font-size: 0.85rem; font-weight: 700; color: var(--text-primary); flex: 1; }
+.vapp__column-count {
+  font-size: 0.72rem; font-weight: 700; font-family: var(--font-display);
+  padding: 2px 8px; border-radius: var(--radius-full);
+  background: var(--bg-elevated); color: var(--text-secondary);
+}
+.vapp__column--lavender .vapp__column-header { background: var(--lavender-dim); border-color: var(--lavender-glow); }
+.vapp__column--amber    .vapp__column-header { background: var(--amber-dim);    border-color: rgba(252,211,77,0.2); }
+.vapp__column--cyan     .vapp__column-header { background: var(--cyan-dim);     border-color: rgba(103,232,249,0.2); }
+.vapp__column--mint     .vapp__column-header { background: var(--mint-dim);     border-color: rgba(134,239,172,0.2); }
+.vapp__column--peach    .vapp__column-header { background: var(--peach-dim);    border-color: rgba(252,165,165,0.2); }
+
+.vapp__column-cards {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: var(--space-md); min-height: 100px;
+}
+.vapp__column-empty {
+  font-size: 0.75rem; color: var(--text-muted); text-align: center;
+  padding: var(--space-lg) 0; border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+/* Card */
+.vapp__card {
+  background: var(--bg-card); border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg); padding: var(--space-md);
+  cursor: pointer; display: flex; flex-direction: column; gap: 8px;
+  transition: all var(--transition-fast);
+}
+.vapp__card:hover { border-color: var(--border-subtle); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+
+.vapp__card-header { display: flex; align-items: flex-start; gap: 10px; }
+.vapp__avatar {
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  background: color-mix(in srgb, var(--av,#C4B5FD) 20%, var(--bg-elevated));
+  border: 1.5px solid color-mix(in srgb, var(--av,#C4B5FD) 40%, transparent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 0.65rem;
+  color: var(--av,#C4B5FD);
+}
+.vapp__card-meta    { flex: 1; min-width: 0; }
+.vapp__card-name    { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vapp__card-college { font-size: 0.72rem; color: var(--text-secondary); }
+.vapp__card-degree  { font-size: 0.68rem; color: var(--text-muted); }
+.vapp__card-cgpa    { font-size: 0.72rem; color: var(--amber); font-weight: 600; }
+.vapp__card-date    { font-size: 0.68rem; color: var(--text-muted); }
+
+.vapp__card-skills { display: flex; flex-wrap: wrap; gap: 4px; }
+.vapp__skill-chip {
+  font-size: 0.68rem; padding: 2px 8px;
+  background: var(--bg-elevated); border: 1px solid var(--border-card);
+  border-radius: var(--radius-full); color: var(--text-secondary);
+}
+.vapp__skill-more {
+  font-size: 0.68rem; color: var(--text-muted); align-self: center;
+}
+
+/* Move buttons */
+.vapp__card-moves  { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; border-top: 1px solid var(--border-subtle); }
+.vapp__move-btn {
+  font-size: 0.72rem; font-weight: 600; padding: 5px 10px;
+  border-radius: var(--radius-md); border: 1px solid; cursor: pointer;
+  transition: all var(--transition-fast); text-align: left;
+  font-family: var(--font-display);
+}
+.vapp__move-btn--lavender { background: var(--lavender-dim); color: var(--lavender); border-color: var(--lavender-glow); }
+.vapp__move-btn--amber    { background: var(--amber-dim);    color: var(--amber);    border-color: rgba(252,211,77,0.25); }
+.vapp__move-btn--cyan     { background: var(--cyan-dim);     color: var(--cyan);     border-color: rgba(103,232,249,0.25); }
+.vapp__move-btn--mint     { background: var(--mint-dim);     color: var(--mint);     border-color: rgba(134,239,172,0.25); }
+.vapp__move-btn--peach    { background: var(--peach-dim);    color: var(--peach);    border-color: rgba(252,165,165,0.2); }
+.vapp__move-btn:hover     { filter: brightness(1.15); }
+
+/* Modal */
+.vapp__modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  z-index: 8000; display: flex; align-items: center; justify-content: center; padding: var(--space-lg);
+  animation: overlayIn 0.2s ease both;
+}
+.vapp__modal {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl); width: 100%; max-width: 560px;
+  max-height: 90vh; overflow-y: auto;
+  position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+.vapp__modal-close {
+  position: absolute; top: 14px; right: 14px; z-index: 10;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--bg-elevated); border: 1px solid var(--border-subtle);
+  color: var(--text-secondary); font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all var(--transition-fast);
+}
+.vapp__modal-close:hover { background: var(--peach-dim); color: var(--peach); }
+
+.vapp__modal-header {
+  position: relative;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--av,#C4B5FD) 10%, var(--bg-panel)), var(--bg-panel));
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-xl); border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden; display: flex; align-items: flex-start; gap: var(--space-lg);
+}
+.vapp__modal-header-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at top right, var(--av,#C4B5FD), transparent 60%);
+  opacity: 0.07; pointer-events: none;
+}
+.vapp__modal-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: color-mix(in srgb, var(--av,#C4B5FD) 20%, var(--bg-elevated));
+  border: 2px solid color-mix(in srgb, var(--av,#C4B5FD) 50%, transparent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+  color: var(--av,#C4B5FD); flex-shrink: 0; position: relative;
+}
+.vapp__modal-info    { flex: 1; position: relative; }
+.vapp__modal-info h2 { font-size: 1.25rem; color: var(--text-primary); margin-bottom: 4px; }
+.vapp__modal-info p  { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 2px; }
+.vapp__modal-role    { font-size: 0.8rem; color: var(--text-muted) !important; }
+.vapp__modal-tags    { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.vapp__status-pill {
+  font-size: 0.68rem; font-weight: 700; font-family: var(--font-display);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 10px; border-radius: var(--radius-full); border: 1px solid;
+}
+.vapp__status-pill--applied     { background: var(--lavender-dim); color: var(--lavender); border-color: var(--lavender-glow); }
+.vapp__status-pill--shortlisted { background: var(--amber-dim);    color: var(--amber);    border-color: rgba(252,211,77,0.25); }
+.vapp__status-pill--interview   { background: var(--cyan-dim);     color: var(--cyan);     border-color: rgba(103,232,249,0.25); }
+.vapp__status-pill--hired       { background: var(--mint-dim);     color: var(--mint);     border-color: rgba(134,239,172,0.25); }
+.vapp__status-pill--rejected    { background: var(--peach-dim);    color: var(--peach);    border-color: rgba(252,165,165,0.2); }
+
+.vapp__modal-body {
+  padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-lg);
+}
+.vapp__modal-section-title {
+  font-family: var(--font-display); font-size: 0.88rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: var(--space-sm);
+}
+.vapp__modal-skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.vapp__modal-note   { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+.vapp__modal-links  { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+.vapp__modal-moves  { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+
+@media (max-width: 1100px) {
+  .vapp__board { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+  .vapp__board { grid-template-columns: repeat(2, minmax(200px, 1fr)); }
+}

@@ -1,0 +1,202 @@
+/* InternshipCard.css */
+.icard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  break-inside: avoid;
+}
+
+.icard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, var(--lavender-dim), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.icard:hover {
+  border-color: var(--border-subtle);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 0 0 1px var(--border-glow);
+}
+
+.icard:hover::before { opacity: 1; }
+
+/* ─── HEADER — just logo + meta, no absolute badges ─── */
+.icard__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.icard__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--logo-color, var(--lavender));
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.icard__meta { flex: 1; min-width: 0; }
+
+.icard__role {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icard__company {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* ─── BADGES ROW — sits below header, no overlap ─── */
+.icard__badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.icard__badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.icard__badge--featured {
+  background: var(--lavender-dim);
+  color: var(--lavender);
+  border: 1px solid var(--lavender-glow);
+}
+
+.icard__remote-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.icard__remote-badge--yes {
+  background: var(--mint-dim);
+  color: var(--mint);
+  border-color: rgba(134, 239, 172, 0.2);
+}
+
+/* DESCRIPTION */
+.icard__desc {
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* TAGS */
+.icard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* FOOTER */
+.icard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-card);
+}
+
+.icard__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.icard__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.icard__stat-icon { font-size: 0.85rem; }
+
+/* ─── APPLY BUTTON ─── */
+.icard__apply-btn {
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--lavender);
+  background: transparent;
+  color: var(--lavender);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.icard__apply-btn:hover {
+  background: var(--lavender);
+  color: var(--text-inverse);
+  transform: scale(1.03);
+}
+
+.icard__apply-btn--applied {
+  background: var(--mint-dim);
+  border-color: var(--mint);
+  color: var(--mint);
+  pointer-events: none;
+}
+
+/* COMPACT VARIANT */
+.icard--compact {
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+.icard--compact .icard__logo { width: 38px; height: 38px; font-size: 0.7rem; }
+.icard--compact .icard__role { font-size: 0.88rem; }

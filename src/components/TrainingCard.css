@@ -1,0 +1,224 @@
+/* TrainingCard.css */
+.tcard {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  break-inside: avoid;
+}
+
+.tcard:hover {
+  border-color: var(--border-subtle);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px var(--border-glow);
+}
+
+/* THUMBNAIL */
+.tcard__thumb {
+  position: relative;
+  height: 160px;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--thumb-color, var(--lavender)) 20%, var(--bg-elevated)),
+    var(--bg-elevated));
+  overflow: hidden;
+}
+
+.tcard__thumb-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tcard__thumb-logo {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--thumb-color, var(--lavender));
+  opacity: 0.25;
+  letter-spacing: -0.05em;
+}
+
+.tcard__thumb-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  padding: 3px 9px;
+  background: var(--amber-dim);
+  color: var(--amber);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(252,211,77,0.2);
+}
+
+.tcard__thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.tcard:hover .tcard__thumb-overlay { opacity: 1; }
+
+.tcard__play {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+/* BODY */
+.tcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--space-lg);
+  flex: 1;
+}
+
+.tcard__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tcard__title {
+  font-family: var(--font-display);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.tcard__provider {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tcard__desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+/* STARS */
+.tcard__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tcard__star { font-size: 0.85rem; color: var(--text-muted); }
+.tcard__star--filled { color: var(--amber); }
+.tcard__rating-num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--amber);
+  margin-left: 4px;
+}
+
+.tcard__reviews {
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+/* META ROW */
+.tcard__metas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.tcard__meta-item {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* PRICE */
+.tcard__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-card);
+}
+
+.tcard__price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.tcard__price-original {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.tcard__discount {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mint);
+  background: var(--mint-dim);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+/* FOOTER */
+.tcard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.tcard__enrolled {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.tcard__enroll-btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  color: var(--lavender);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all var(--transition-fast);
+}
+
+.tcard:hover .tcard__enroll-btn {
+  opacity: 1;
+  transform: translateX(0);
+}

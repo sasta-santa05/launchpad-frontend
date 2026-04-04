@@ -1,0 +1,178 @@
+/* StudentHome additional CSS — shome__welcome classes */
+
+.shome {
+  padding: var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* WELCOME BANNER */
+.shome__welcome {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--lavender) 8%, var(--bg-card)),
+    var(--bg-card));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  min-height: 200px;
+}
+.shome__welcome-orb {
+  position: absolute;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,181,253,0.1), transparent 70%);
+  top: -150px; right: -100px;
+  filter: blur(60px); pointer-events: none;
+}
+.shome__welcome-content { position: relative; z-index: 1; flex: 1; min-width: 0; }
+.shome__greeting {
+  font-size: 0.85rem; color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+.shome__headline {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+}
+.shome__sub {
+  font-size: 0.88rem; color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 480px;
+}
+.shome__welcome-actions {
+  display: flex; gap: var(--space-md); flex-wrap: wrap;
+}
+
+/* Ring */
+.shome__ring-wrap {
+  position: relative; z-index: 1;
+  flex-shrink: 0;
+}
+.shome__ring {
+  width: 120px; height: 120px;
+  filter: drop-shadow(0 0 12px rgba(196,181,253,0.2));
+}
+
+/* STATS */
+.shome__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+.shome__stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  display: flex; align-items: center; gap: var(--space-md);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  border-left: 3px solid transparent;
+}
+.shome__stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.shome__stat--lavender { border-left-color: var(--lavender); }
+.shome__stat--mint     { border-left-color: var(--mint); }
+.shome__stat--cyan     { border-left-color: var(--cyan); }
+.shome__stat--amber    { border-left-color: var(--amber); }
+.shome__stat-icon  { font-size: 1.4rem; }
+.shome__stat-value {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 1.4rem; color: var(--text-primary); line-height: 1;
+}
+.shome__stat-label { font-size: 0.72rem; color: var(--text-muted); }
+
+/* BODY */
+.shome__body {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-xl);
+}
+.shome__left, .shome__right {
+  display: flex; flex-direction: column; gap: var(--space-xl);
+}
+
+/* SECTIONS */
+.shome__section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  display: flex; flex-direction: column; gap: var(--space-lg);
+}
+.shome__section-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.shome__section-title {
+  font-family: var(--font-display); font-size: 1rem;
+  font-weight: 700; color: var(--text-primary);
+}
+.shome__see-all {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--lavender); text-decoration: none;
+}
+.shome__see-all:hover { text-decoration: underline; }
+
+/* Internship cards in home */
+.shome__internships {
+  display: flex; flex-direction: column; gap: var(--space-md);
+}
+
+/* Deadlines / status list */
+.shome__deadlines { display: flex; flex-direction: column; gap: var(--space-md); }
+.shome__deadline-item {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+}
+.shome__deadline-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.shome__deadline-dot--lavender { background: var(--lavender); }
+.shome__deadline-dot--mint     { background: var(--mint); }
+.shome__deadline-dot--amber    { background: var(--amber); }
+.shome__deadline-dot--cyan     { background: var(--cyan); }
+.shome__deadline-dot--peach    { background: var(--peach); }
+.shome__deadline-role { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+.shome__deadline-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Activity */
+.shome__activity { display: flex; flex-direction: column; gap: 8px; }
+.shome__activity-item {
+  display: flex; align-items: center; gap: var(--space-md);
+  padding: 10px; border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+.shome__activity-item:hover { background: var(--bg-elevated); }
+.shome__activity-icon { font-size: 1.1rem; flex-shrink: 0; }
+.shome__activity-text { font-size: 0.83rem; color: var(--text-primary); }
+.shome__activity-time { font-size: 0.7rem; color: var(--text-muted); }
+
+/* Profile nudge */
+.shome__nudge {
+  text-align: center;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--mint) 6%, var(--bg-card)), var(--bg-card));
+  border-color: rgba(134,239,172,0.2);
+}
+.shome__nudge-icon  { font-size: 2rem; }
+.shome__nudge-title { font-family: var(--font-display); font-size: 0.95rem; color: var(--text-primary); }
+.shome__nudge-sub   { font-size: 0.8rem; color: var(--text-secondary); }
+
+@media (max-width: 1100px) {
+  .shome__stats { grid-template-columns: repeat(2, 1fr); }
+  .shome__body  { grid-template-columns: 1fr; }
+  .shome__ring-wrap { display: none; }
+}
