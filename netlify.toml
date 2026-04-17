@@ -1,0 +1,7 @@
+[build]
+  base = "launchpad-frontend"
+  command = "chmod +x node_modules/.bin/react-scripts && npm run build"
+  publish = "launchpad-frontend/build"
+
+[build.environment]
+  CI = "false"
