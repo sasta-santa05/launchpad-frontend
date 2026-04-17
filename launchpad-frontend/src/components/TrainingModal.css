@@ -1,0 +1,286 @@
+/* TrainingModal.css */
+.tmodal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  z-index: 8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  animation: overlayIn 0.2s ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.tmodal__panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+
+.tmodal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.tmodal__close:hover {
+  background: var(--peach-dim);
+  color: var(--peach);
+  border-color: var(--peach);
+}
+
+/* HEADER */
+.tmodal__header {
+  position: relative;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--thumb-color, var(--lavender)) 12%, var(--bg-panel)),
+    var(--bg-panel));
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.tmodal__header-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, var(--thumb-color, var(--lavender)), transparent 60%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.tmodal__header-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  position: relative;
+}
+
+.tmodal__logo {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--thumb-color, var(--lavender));
+  flex-shrink: 0;
+}
+
+.tmodal__tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.tmodal__title { font-size: 1.4rem; color: var(--text-primary); margin-bottom: 4px; }
+.tmodal__provider { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* BODY */
+.tmodal__body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 0;
+}
+
+@media (max-width: 700px) {
+  .tmodal__body { grid-template-columns: 1fr; }
+  .tmodal__cta-panel { border-left: none; border-top: 1px solid var(--border-subtle); }
+}
+
+.tmodal__left {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.tmodal__stats-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tmodal__stars { display: flex; align-items: center; }
+.tmodal__stat-text { font-size: 0.83rem; color: var(--text-secondary); }
+.tmodal__stat-divider { color: var(--text-muted); }
+
+.tmodal__meta-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tmodal__chip {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}
+.tmodal__chip--gold {
+  background: var(--amber-dim);
+  color: var(--amber);
+  border-color: rgba(252,211,77,0.2);
+}
+
+.tmodal__section { display: flex; flex-direction: column; gap: var(--space-md); }
+.tmodal__section-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.tmodal__desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-secondary); }
+
+.tmodal__learn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .tmodal__learn-grid { grid-template-columns: 1fr; }
+}
+
+.tmodal__learn-item {
+  display: flex;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  align-items: flex-start;
+}
+.tmodal__learn-check { color: var(--mint); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+.tmodal__curriculum { display: flex; flex-direction: column; gap: 6px; }
+.tmodal__chapter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  transition: border-color var(--transition-fast);
+}
+.tmodal__chapter:hover { border-color: var(--border-subtle); }
+.tmodal__chapter-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--lavender);
+  flex-shrink: 0;
+}
+.tmodal__chapter-name { font-size: 0.85rem; color: var(--text-primary); flex: 1; }
+.tmodal__chapter-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* CTA PANEL */
+.tmodal__cta-panel {
+  padding: var(--space-xl) var(--space-lg);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--bg-panel);
+  border-radius: 0 0 var(--radius-xl) 0;
+}
+
+.tmodal__price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tmodal__price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.tmodal__original {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.tmodal__discount {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--mint);
+  background: var(--mint-dim);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.tmodal__offer-note {
+  font-size: 0.78rem;
+  color: var(--peach);
+  background: var(--peach-dim);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.tmodal__enroll-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.tmodal__enroll-btn--done {
+  background: var(--mint-dim) !important;
+  color: var(--mint) !important;
+  border: 1.5px solid var(--mint) !important;
+  box-shadow: none !important;
+  cursor: default;
+}
+
+.tmodal__wishlist-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.tmodal__guarantees {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+}
+.tmodal__guarantee {
+  display: flex;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  align-items: flex-start;
+}
+.tmodal__guarantee span:first-child { color: var(--mint); font-weight: 700; flex-shrink: 0; }

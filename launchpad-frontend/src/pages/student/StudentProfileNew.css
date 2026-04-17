@@ -1,0 +1,118 @@
+/* StudentProfile additional CSS — std-profile classes */
+
+.std-profile {
+  padding: var(--space-xl);
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  position: relative;
+}
+
+/* Toast */
+.std-profile__toast {
+  position: fixed; bottom: 90px; right: 28px;
+  background: var(--mint-dim); color: var(--mint);
+  border: 1px solid rgba(134,239,172,0.3);
+  padding: 10px 20px; border-radius: var(--radius-full);
+  font-size: 0.85rem; font-weight: 600;
+  font-family: var(--font-display); z-index: 9001;
+  animation: toastIn 0.3s ease both;
+}
+@keyframes toastIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+
+/* Hero */
+.std-profile__hero {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--lavender) 8%, var(--bg-panel)), var(--bg-panel));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+}
+.std-profile__hero-left {
+  display: flex; align-items: center; gap: var(--space-lg);
+}
+.std-profile__avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--lavender-dim);
+  border: 2px solid var(--lavender-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+  color: var(--lavender); flex-shrink: 0;
+}
+.std-profile__name {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.std-profile__sub {
+  font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--space-md);
+}
+.std-profile__completion { display: flex; align-items: center; gap: var(--space-md); }
+.std-profile__completion-bar {
+  flex: 1; height: 6px; background: var(--bg-elevated);
+  border-radius: 99px; overflow: hidden; max-width: 200px;
+}
+.std-profile__completion-fill {
+  height: 100%; background: var(--lavender);
+  border-radius: 99px; transition: width 0.5s ease;
+}
+.std-profile__completion-label { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Sections */
+.std-profile__section {
+  background: var(--bg-card); border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl); padding: var(--space-xl);
+  display: flex; flex-direction: column; gap: var(--space-lg);
+}
+.std-profile__section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: var(--space-md); border-bottom: 1px solid var(--border-subtle);
+}
+.std-profile__section-title {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--text-primary);
+}
+
+/* Info grid */
+.std-profile__info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);
+}
+.std-profile__info-grid > div {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: var(--space-md); background: var(--bg-elevated);
+  border: 1px solid var(--border-card); border-radius: var(--radius-md);
+}
+.std-profile__info-label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--text-muted); font-weight: 600;
+}
+.std-profile__full { grid-column: 1 / -1; }
+
+/* Edit grid */
+.std-profile__edit-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);
+}
+
+/* Skills pills */
+.std-profile__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Links */
+.std-profile__links-list { display: flex; flex-direction: column; gap: 10px; }
+.std-profile__link-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px var(--space-md); background: var(--bg-elevated);
+  border: 1px solid var(--border-card); border-radius: var(--radius-md);
+  font-size: 0.85rem; color: var(--text-secondary); gap: var(--space-md); flex-wrap: wrap;
+}
+.std-profile__link-val {
+  color: var(--lavender); font-weight: 500; word-break: break-all;
+  text-decoration: none;
+}
+.std-profile__link-val:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .std-profile__info-grid { grid-template-columns: 1fr; }
+  .std-profile__edit-grid { grid-template-columns: 1fr; }
+}

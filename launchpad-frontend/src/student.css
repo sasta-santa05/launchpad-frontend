@@ -1,0 +1,76 @@
+/* src/student.css */
+.student-dashboard {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+}
+
+.student-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+}
+
+.s-nav__left, .s-nav__links { display: flex; align-items: center; gap: var(--space-xl); }
+.s-nav__link {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+.s-nav__link.active, .s-nav__link:hover { color: var(--lavender); }
+
+.s-nav__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.s-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--lavender-dim);
+  border: 1px solid var(--lavender);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: var(--lavender); font-size: 0.8rem;
+}
+
+.dashboard-content { padding: var(--space-xl); max-width: 1200px; margin: 0 auto; }
+.dashboard-title { margin-bottom: var(--space-xl); font-size: 2rem; }
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 12px; border-radius: var(--radius-full);
+  font-size: 0.75rem; font-weight: 600;
+}
+.status-applied { background: var(--lavender-dim); color: var(--lavender); border: 1px solid rgba(196,181,253,0.3); }
+.status-review { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(252,211,77,0.3); }
+
+/* Dashboard Cards Layout */
+.app-card {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card); padding: var(--space-lg);
+  border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+}
+.app-card__info h4 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 4px; }
+.app-card__info p { font-size: 0.85rem; color: var(--text-secondary); }
+/* ─────────────────────────────────────────
+   LIGHT MODE OVERRIDES — student.css
+───────────────────────────────────────── */
+[data-theme="light"] .student-nav {
+  background: var(--bg-card);
+  border-bottom-color: var(--border-subtle);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .app-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}

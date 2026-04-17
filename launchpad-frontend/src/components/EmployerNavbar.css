@@ -1,0 +1,96 @@
+/* EmployerNavbar.css */
+.emp-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-height, 64px);
+  background: var(--navbar-bg, rgba(13,16,23,0.85));
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.emp-nav__inner {
+  max-width: 1400px; margin: 0 auto;
+  height: 100%; padding: 0 var(--space-xl);
+  display: flex; align-items: center; gap: var(--space-xl);
+}
+
+/* Logo */
+.emp-nav__logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; flex-shrink: 0;
+}
+.emp-nav__logo-icon  { font-size: 1.3rem; color: var(--lavender); }
+.emp-nav__logo-text  { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--text-primary); }
+.emp-nav__logo-accent { color: var(--lavender); }
+.emp-nav__logo-badge {
+  font-size: 0.6rem; font-weight: 700; font-family: var(--font-display);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: var(--radius-full);
+  background: var(--mint-dim); color: var(--mint);
+  border: 1px solid rgba(134,239,172,0.2);
+}
+
+/* Nav links */
+.emp-nav__links {
+  display: flex; align-items: center; gap: 4px; flex: 1;
+}
+.emp-nav__link {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: var(--radius-md);
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--text-secondary); text-decoration: none;
+  transition: all var(--transition-fast);
+}
+.emp-nav__link:hover { color: var(--text-primary); background: var(--bg-elevated); }
+.emp-nav__link--active { color: var(--text-primary); background: var(--bg-elevated); }
+.emp-nav__link-icon { font-size: 0.9rem; }
+
+/* Right */
+.emp-nav__right {
+  display: flex; align-items: center; gap: var(--space-md); margin-left: auto;
+}
+
+/* Company avatar */
+.emp-nav__avatar-wrap {
+  position: relative;
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; padding: 4px 10px 4px 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+.emp-nav__avatar-wrap:hover { border-color: var(--border-glow); }
+.emp-nav__avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: color-mix(in srgb, var(--emp-logo-color, #C4B5FD) 20%, var(--bg-card));
+  border: 1.5px solid color-mix(in srgb, var(--emp-logo-color, #C4B5FD) 40%, transparent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 0.65rem;
+  color: var(--emp-logo-color, #C4B5FD);
+}
+.emp-nav__company-name { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+.emp-nav__chevron      { font-size: 0.7rem; color: var(--text-muted); transition: transform 0.2s; }
+
+/* Dropdown */
+.emp-nav__dropdown {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 210px;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 6px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  animation: dropIn 0.15s ease both;
+  z-index: 100;
+}
+@keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+.emp-nav__drop-item {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 9px 12px;
+  font-size: 0.83rem; font-weight: 500;
+  color: var(--text-secondary); text-decoration: none;
+  border-radius: var(--radius-md); background: none; border: none; cursor: pointer;
+  transition: all var(--transition-fast); text-align: left;
+}
+.emp-nav__drop-item:hover { background: var(--bg-elevated); color: var(--text-primary); }
+.emp-nav__drop-item--danger:hover { background: var(--peach-dim); color: var(--peach); }
+.emp-nav__drop-divider { height: 1px; background: var(--border-subtle); margin: 4px 0; }
+.emp-nav__link-badge { min-width:16px; height:16px; padding:0 4px; background:var(--lavender); color:var(--text-inverse); font-size:0.58rem; font-weight:800; font-family:var(--font-display); border-radius:99px; display:flex; align-items:center; justify-content:center; margin-left:2px; }
